@@ -1,0 +1,54 @@
+<div class="d-grid col-1 mx-auto">
+  <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#materialModal"><strong>+</strong></button>
+</div> 
+
+<!-- Modal Material -->
+<div class="modal fade" id="materialModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Nuevo Material...</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="row">
+          <div class="col-8">
+            <strong>Nombre: </strong>
+            <input type="text" class="form-control" placeholder="Nombre..." required #txtName>
+          </div>
+  
+          <div class="col">
+            <strong>Cantidad: </strong>
+            <input type="number" class="form-control" value="1" min="1" max="99" #txtQuantity>
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-8">
+            <strong>Descripcion: </strong>
+            <textarea class="form-control" cols="38" rows="3" placeholder="Descripcion..." required #txtDescription></textarea>
+          </div>
+          <div class="col">
+            <div class="row">
+              <strong>Grupo: </strong>
+            </div>
+            <select class="form-control" id="group" aria-placeholder="Grupo..." #txtGroup>
+              <option class="selection">Todos</option>
+              <option>Grupo 1</option>
+              <option>Grupo 2</option>
+              <option>Grupo 3</option>
+            </select>          
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <button class="form-control btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+          <button class="form-control btn btn-primary" data-bs-dismiss="modal" (click)="saveMaterial( txtName.value, txtQuantity.value, txtDescription.value, txtGroup.value )">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

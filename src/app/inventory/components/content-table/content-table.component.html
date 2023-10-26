@@ -1,0 +1,40 @@
+
+<div *ngIf="stockList > 1; then warning; else stock"></div>
+
+<ng-template #warning>
+  <div class="alert alert-warning text-center">
+    ¡No hay materiales en el inventario!
+  </div>
+</ng-template>
+
+<ng-template #stock>
+  <table class="table table-hover text-center">
+    <thead>
+      <th>Cantidad</th>
+      <th>Material</th>
+      <th>Descripcion</th>
+      <th>Grupo</th>
+      <th>Editar</th>
+      <th>Eliminar</th>  
+    </thead>
+    <tbody>
+      <tr *ngFor="let stock of stockList; let i = index">
+        <td>{{ stock.quantity }}</td>
+        <td>{{ stock.name }}</td>
+        <td>{{ stock.description }}</td>
+        <td>{{ stock.group }}</td>
+
+        <!-- Modal to Edit Element on this row of list -->
+        <td> <edit-element-modal [id_Material]="i" [material]="stock"></edit-element-modal> </td>
+
+        <!-- Modal to Delete Element on this row of list -->
+        <td> <delete-element-modal [id_Material]="i"></delete-element-modal> </td>
+
+      </tr>
+    </tbody>
+  </table>
+</ng-template>
+
+<!-- Modal to Add Element on this Content Table -->
+<!-- <add-element-modal></add-element-modal> -->
+<ngx-modal></ngx-modal>

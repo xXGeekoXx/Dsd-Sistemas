@@ -1,0 +1,59 @@
+<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal" (click)="editMaterial()">
+  <span class="material-symbols-outlined">
+    edit
+  </span>
+</button>
+
+{{ material.group }}
+
+<!-- Modal Edit -->
+<div class="modal fade" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar Material</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="row">
+          <div class="col-8">
+              <strong class="row ml-3">Nombre: </strong>
+              <input type="text" class="form-control" placeholder="Nombre..." required #txtEditName>
+          </div>
+    
+          <div class="col">
+            <strong class="row">Cantidad: </strong>
+            <input type="number" class="form-control" min="1" max="99" #txtEditQuantity>
+          </div>
+        </div>
+
+         <div class="row mt-3">
+           <div class="col-8">
+             <strong class="row">Descripcion: </strong>
+             <textarea class="form-control" cols="38" rows="3" placeholder="Descripcion..." required #txtEditDescription></textarea>
+           </div>
+           <div class="col">
+             <div class="row">
+               <strong class="row">Grupo: </strong>
+             </div>
+            <select id="group" class="form-control" aria-placeholder="Grupo..." #txtEditGroup>
+                <option class="selection">Todos</option>
+                <option>Grupo 1</option>
+                <option>Grupo 2</option>
+                <option>Grupo 3</option>
+            </select>         
+           </div>
+        </div>
+
+      </div>
+     <div class="modal-footer">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <button class="form-control btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+          <button class="form-control btn btn-primary" data-bs-dismiss="modal" (click)="saveEditMaterial( txtEditName.value, txtEditQuantity.value, txtEditDescription.value, txtEditGroup.value )">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  
